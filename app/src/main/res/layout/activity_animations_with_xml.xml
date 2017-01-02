@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_animations_with_xml"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siva.demoapp.AnimationsWithXML">
+
+    <ImageView
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/fallback"
+        android:layout_marginTop="19dp"
+        android:id="@+id/img"
+        android:layout_width="150dp"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:text="Fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img"
+        android:layout_marginTop="30dp"
+        android:id="@+id/btn_fade" />
+
+    <Button
+        android:text="Bounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_fade"
+        android:layout_toEndOf="@+id/btn_fade"
+        android:layout_marginStart="24dp"
+        android:id="@+id/btn_bounce" />
+
+    <Button
+        android:text="Move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_bounce"
+        android:layout_toEndOf="@+id/btn_bounce"
+        android:layout_marginStart="26dp"
+        android:id="@+id/btn_move" />
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <GridLayout
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:background="@drawable/board"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="0"
+            android:tag="0"
+            android:layout_column="0"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="0"
+            android:tag="1"
+            android:layout_column="1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="0"
+            android:tag="2"
+            android:layout_column="2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="1"
+            android:tag="3"
+            android:layout_column="0"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="1"
+            android:tag="4"
+            android:layout_column="1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="1"
+            android:tag="5"
+            android:layout_column="2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="2"
+            android:tag="6"
+            android:layout_column="0"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="2"
+            android:tag="7"
+            android:layout_column="1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+        <ImageView
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:onClick="dropIn"
+            android:layout_row="2"
+            android:tag="8"
+            android:layout_column="2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
+
+    </GridLayout>
+</RelativeLayout>

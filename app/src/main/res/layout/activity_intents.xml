@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_intents"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siva.demoapp.Intents">
+
+    <Button
+        android:text="Dial a number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:id="@+id/dial"
+        android:textAllCaps="false"
+        android:onClick="dialNumber" />
+
+    <Button
+        android:text="Page Load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/button3"
+        android:textAllCaps="false"
+        android:onClick="pageLoad"
+        android:layout_below="@+id/dial"
+        android:layout_alignStart="@+id/dial" />
+
+    <Button
+        android:text="Take a Photo and Print"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        android:textAllCaps="false"
+        android:onClick="takePhoto" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/fallback"
+        android:layout_alignTop="@+id/button4"
+        android:layout_toEndOf="@+id/button4"
+        android:layout_marginStart="18dp"
+        android:id="@+id/camera_img" />
+
+    <Button
+        android:text="Start Activity within App"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/camera_img"
+        android:layout_alignStart="@+id/button4"
+        android:id="@+id/start_activity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:text="Start Other app activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_activity"
+        android:layout_alignStart="@+id/start_activity"
+        android:layout_marginTop="10dp"
+        android:id="@+id/button6"
+        android:textAllCaps="false"
+        android:onClick="startOtherAppActivity" />
+
+    <Button
+        android:text="Start Other app activity using exported"
+        android:id="@+id/button7"
+        android:textAllCaps="false"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/button6"
+        android:layout_alignStart="@+id/button6"
+        android:onClick="startOtherAppActivityExported"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
