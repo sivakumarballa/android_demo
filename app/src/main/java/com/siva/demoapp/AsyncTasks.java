@@ -2,7 +2,6 @@ package com.siva.demoapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +9,7 @@ import com.siva.demoapp.common.AsyncResponse;
 import com.siva.demoapp.common.FetchData;
 import com.siva.demoapp.common.Utility;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import static android.os.AsyncTask.THREAD_POOL_EXECUTOR;
@@ -64,7 +64,18 @@ public class AsyncTasks extends AppCompatActivity implements View.OnClickListene
             utility.showNoConnectionDialog(this);
         }
 
-        new FetchData(this, "https://api.github.com/users/sivakumarballa", "GET").executeOnExecutor(THREAD_POOL_EXECUTOR);
+        new FetchData(this, "https://api.github.com/users/sivakumarballa", false).executeOnExecutor(THREAD_POOL_EXECUTOR);
+
+        /*
+        String json = "{'param1' : 'value1', 'param2' : 'value2'}";
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        new FetchData(this, "login", true, jsonObject).executeOnExecutor(THREAD_POOL_EXECUTOR);
+        */
     }
 
     @Override

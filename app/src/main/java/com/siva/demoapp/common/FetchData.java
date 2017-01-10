@@ -3,6 +3,7 @@ package com.siva.demoapp.common;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -12,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Iterator;
 
 /**
  * Created by siva on 27/12/16.
@@ -24,15 +26,63 @@ public class FetchData extends AsyncTask<String, Integer, JSONObject> {
     String payload = null;
     AsyncResponse delegate = null;
 
-    public FetchData(AsyncResponse delegate, String url, String method) {
-        this.delegate = delegate;
-        this.url = url;
-        this.method = method;
+    ApiCallList apiCallList = ApiCallList.getInstance();
+
+    /**
+     * This method gets the complete url and method from ApiCallsList
+     * @param url unique identifier of api
+     */
+    public void updateApiUrlAndMethod(String url) {
+        this.url = apiCallList.getApiURL(url);
+        this.method = apiCallList.getApiMethod(url);
     }
 
-    public FetchData(AsyncResponse delegate, String url, String method, JSONObject payload) {
-        this(delegate, url, method);
+    /**
+     * Appending object params to url for GET call
+     */
+    // TODO find built in method to do it
+    public void addParametersToURL() {
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(this.payload);
+            Iterator<String> keys = jsonObject.keys();
+            boolean firstKey = true;
+            String key = null, val = null;
+            while(keys.hasNext()){
+                key = keys.next();
+                val = jsonObject.getString(key);
+                if(firstKey) {
+                    firstKey = false;
+                    this.url += "?" + key + "=" + val;
+                } else {
+                    this.url += "&" + key + "=" + val;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        System.out.println(this.url);
+    }
+
+    public FetchData(AsyncResponse delegate, String url, boolean isInternalApi) {
+        this.delegate = delegate;
+        this.url = url;
+        this.method = "GET";
+
+        if(isInternalApi) {
+            updateApiUrlAndMethod(url);
+        }
+    }
+
+    public FetchData(AsyncResponse delegate, String url, boolean isInternalApi, JSONObject payload) {
+        this.delegate = delegate;
+        this.url = url;
+        this.method = "POST";
         this.payload = payload.toString();
+
+        if(isInternalApi) {
+            updateApiUrlAndMethod(url);
+        }
     }
 
     @Override
@@ -40,6 +90,9 @@ public class FetchData extends AsyncTask<String, Integer, JSONObject> {
         BufferedReader reader = null;
 
         try {
+            if(method.equals("GET")) {
+                addParametersToURL();
+            }
             URL url = new URL(this.url);
 
             // Open HTTP connection
