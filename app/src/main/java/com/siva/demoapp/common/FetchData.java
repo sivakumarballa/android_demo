@@ -90,7 +90,7 @@ public class FetchData extends AsyncTask<String, Integer, JSONObject> {
         BufferedReader reader = null;
 
         try {
-            if(method.equals("GET")) {
+            if(method.equals("GET") && this.payload != null) {
                 addParametersToURL();
             }
             URL url = new URL(this.url);
