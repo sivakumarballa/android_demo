@@ -78,7 +78,7 @@ public class FetchData extends AsyncTask<String, Integer, JSONObject> {
                 // Nothing to do
                 return null;
             }
-            reader = new BufferedReader(new InputStreamReader(inputStream));
+            reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
             String inputLine = null;
             StringBuffer response = new StringBuffer();
 

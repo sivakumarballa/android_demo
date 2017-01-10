@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.siva.demoapp.models.Employee;
 import com.siva.demoapp.R;
@@ -15,7 +16,7 @@ import com.siva.demoapp.R;
  * Created by siva on 21/12/16.
  */
 
-public class EmployeeAdapter extends ArrayAdapter<Employee> {
+public class EmployeeAdapter extends ArrayAdapter<Employee> implements View.OnClickListener {
     Context context;
     int layoutResourceId;
     Employee[] data = null;
@@ -48,7 +49,16 @@ public class EmployeeAdapter extends ArrayAdapter<Employee> {
         holder.emp_name.setText(currentEmp.emp_name);
         holder.designation.setText(currentEmp.designation);
 
+        // Set Click event listener
+        convertView.setOnClickListener(this);
+
         return convertView;
+    }
+
+    @Override
+    public void onClick(View view) {
+        TextView a = (TextView)view.findViewById(R.id.emp_name);
+        Toast.makeText(this.context, "Clicked item: " + a.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
     static class EmployeeHolder {

@@ -64,7 +64,7 @@ public class AsyncTasks extends AppCompatActivity implements View.OnClickListene
             utility.showNoConnectionDialog(this);
         }
 
-        new FetchData(this, "https://www.medicopia.in:9999/api/contentmgmt/getMetaData?userId=2", "GET").executeOnExecutor(THREAD_POOL_EXECUTOR);
+        new FetchData(this, "https://api.github.com/users/sivakumarballa", "GET").executeOnExecutor(THREAD_POOL_EXECUTOR);
     }
 
     @Override

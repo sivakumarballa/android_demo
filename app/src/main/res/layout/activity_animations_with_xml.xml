@@ -17,11 +17,11 @@
 
     <Button
         android:text="Fade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/img"
         android:layout_marginTop="30dp"
-        android:id="@+id/btn_fade" />
+        android:id="@+id/btn_fade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:text="Bounce"
