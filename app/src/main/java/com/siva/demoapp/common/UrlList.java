@@ -6,24 +6,24 @@ import java.util.Map;
 /**
  * Created by Suresh on 1/4/2017.
  */
-public class ApiCallList {
-    private static ApiCallList instance = new ApiCallList();
+public class UrlList {
+    private static UrlList instance = new UrlList();
 
-    public static ApiCallList getInstance() {
+    public static UrlList getInstance() {
         return instance;
     }
 
     // Server Base URL
     final String baseURL = "http://www.divami.com";
 
-    Map<String, ApiDetails> callsList = new HashMap<String, ApiDetails>();
+    Map<String, ApiDetails> urlsList = new HashMap<String, ApiDetails>();
 
     /**
      * List of API calls
      */
-    private ApiCallList() {
-        callsList.put("login", new ApiDetails("/authenticate"));
-        callsList.put("logout", new ApiDetails("/logout"));
+    private UrlList() {
+        urlsList.put("login", new ApiDetails("/authenticate"));
+        urlsList.put("logout", new ApiDetails("/logout"));
     }
 
     /**
@@ -32,7 +32,7 @@ public class ApiCallList {
      * @return complete url of api call
      */
     public String getApiURL(String key) {
-        ApiDetails api =  callsList.get(key);
+        ApiDetails api =  urlsList.get(key);
         if(api != null) {
             return baseURL + api.url;
         }
