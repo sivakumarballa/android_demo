@@ -72,7 +72,7 @@ public class AsyncTasks extends AppCompatActivity implements View.OnClickListene
             utility.showNoConnectionDialog(this);
         }
 
-        //new FetchData(this, "https://api.github.com/users/sivakumarballa", false).executeOnExecutor(THREAD_POOL_EXECUTOR);
+        // new FetchData(this, "https://api.github.com/users/sivakumarballa", false).executeOnExecutor(THREAD_POOL_EXECUTOR);
 
         String json = "{'param1' : 'value1', 'param2' : 'value2'}";
         JSONObject queryParams = null;
@@ -85,7 +85,7 @@ public class AsyncTasks extends AppCompatActivity implements View.OnClickListene
         new FetchData(this, "login", true, jsonObject).executeOnExecutor(THREAD_POOL_EXECUTOR);
         */
 
-        ApiCall.get("https://api.github.com/users/sivakumarballa", false, queryParams, new Callback() {
+        ApiCall.GET("https://api.github.com/users/sivakumarballa", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.i("response", "Failure");

@@ -7,23 +7,23 @@ import java.util.Map;
  * Created by Suresh on 1/4/2017.
  */
 public class ApiCallList {
-    private static ApiCallList ourInstance = new ApiCallList();
+    private static ApiCallList instance = new ApiCallList();
 
     public static ApiCallList getInstance() {
-        return ourInstance;
+        return instance;
     }
 
+    // Server Base URL
+    final String baseURL = "http://www.divami.com";
 
-    // base url of the internal api calls
-    final String baseURL = "http://www.divami.com";       //temporary, need to change
+    Map<String, ApiDetails> callsList = new HashMap<String, ApiDetails>();
 
     /**
-     * List of total internal api calls list goes here
+     * List of API calls
      */
-    Map<String, apiDetails> callsList = new HashMap<String, apiDetails>();
     private ApiCallList() {
-        callsList.put("login", new apiDetails("/Authenticate", "GET"));
-        callsList.put("logout", new apiDetails("/Logout", "POST"));
+        callsList.put("login", new ApiDetails("/authenticate"));
+        callsList.put("logout", new ApiDetails("/logout"));
     }
 
     /**
@@ -32,31 +32,20 @@ public class ApiCallList {
      * @return complete url of api call
      */
     public String getApiURL(String key) {
-        String apiUrl = null;
-        apiUrl =  callsList.get(key).url;
-        return baseURL + apiUrl;
-    }
-
-    /**
-     * This method will returns the api method based on key
-     * @param key is identifier of api call
-     * @return method of api call
-     */
-    public String getApiMethod(String key) {
-        String method = null;
-        method =  callsList.get(key).method;
-        return method;
+        ApiDetails api =  callsList.get(key);
+        if(api != null) {
+            return baseURL + api.url;
+        }
+        return key;
     }
 }
 
 /**
  * API Object definition
  */
-class apiDetails {
-    String url, method;
-
-    public apiDetails(String url, String method) {
+class ApiDetails {
+    String url;
+    public ApiDetails(String url) {
         this.url = url;
-        this.method = method;
     }
 }

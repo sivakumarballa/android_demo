@@ -34,13 +34,13 @@ public class FetchData extends AsyncTask<String, Integer, JSONObject> {
      */
     public void updateApiUrlAndMethod(String url) {
         this.url = apiCallList.getApiURL(url);
-        this.method = apiCallList.getApiMethod(url);
+        this.method = "GET";
     }
 
     /**
      * Appending object params to url for GET call
      */
-    // TODO find built in method to do it
+    // @TODO find built in method to do it
     public void addParametersToURL() {
         JSONObject jsonObject = null;
         try {
