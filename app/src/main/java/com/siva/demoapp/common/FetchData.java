@@ -26,7 +26,7 @@ public class FetchData extends AsyncTask<String, Integer, JSONObject> {
     String payload = null;
     AsyncResponse delegate = null;
 
-    ApiCallList apiCallList = ApiCallList.getInstance();
+    UrlList apiCallList = UrlList.getInstance();
 
     /**
      * This method gets the complete url and method from ApiCallsList

@@ -20,7 +20,7 @@ import okhttp3.RequestBody;
 public class ApiCall {
 
     private static OkHttpClient client;
-    private static ApiCallList apiCallList = ApiCallList.getInstance();
+    private static UrlList apiCallList = UrlList.getInstance();
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     /**
