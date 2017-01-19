@@ -12,9 +12,12 @@ import android.widget.Toast;
 import com.siva.demoapp.adapters.EmployeeAdapter;
 import com.siva.demoapp.models.Employee;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class ListViews extends AppCompatActivity {
 
-    public void refreshList(View view) {
+    @OnClick(R.id.button) public void refreshList(View view) {
         Log.i("Info", "List refreshed");
 
         Intent i = new Intent(this, AnimationsWithXML.class);
@@ -38,6 +41,8 @@ public class ListViews extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
+
+        ButterKnife.bind(this);
 
         Bundle b = getIntent().getExtras();
         if(b != null) {
